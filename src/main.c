@@ -13,7 +13,7 @@
 */
 int main()
 {
-    char filename[256] = "rsc/grille.txt";
+    char filename[256] = "data/grille.txt";
     joueur * j = alloue_joueur();
     int choice;
 
