@@ -1,11 +1,15 @@
-main : main.o grille.o joueur.o
-	gcc -o main main.o grille.o joueur.o -lncurses
+bin/main : obj/main.o obj/grille.o obj/joueur.o
+	gcc -o main obj/main.o obj/grille.o obj/joueur.o -lncurses
+	mv main bin/.
 
-grille.o : grille.c grille.h
-	gcc -c grille.c
+obj/grille.o : src/grille.c include/grille.h
+	gcc -c src/grille.c
+	mv grille.o obj/.
 
-joueur.o : joueur.c joueur.h
-	gcc -c joueur.c
+obj/joueur.o : src/joueur.c include/joueur.h
+	gcc -c src/joueur.c
+	mv joueur.o obj/.
 
-main.o : main.c grille.h joueur.h
-	gcc -c main.c
+obj/main.o : src/main.c include/grille.h include/joueur.h
+	gcc -c src/main.c
+	mv main.o obj/.
